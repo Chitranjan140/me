@@ -2054,7 +2054,7 @@ h2 {
     }
     
     .floating-box {
-        display: none;
+        display: none !important;
     }
 }
 

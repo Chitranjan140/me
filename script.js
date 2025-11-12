@@ -110,7 +110,7 @@ if ('ontouchstart' in window) {
 
 // Optimize animations for mobile
 function optimizeForMobile() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 480;
     const floatingBoxes = document.querySelectorAll('.floating-box');
     
     floatingBoxes.forEach(box => {
