@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="floating-boxes">
         <div class="floating-box"></div>
         <div class="floating-box"></div>
@@ -22,33 +21,44 @@
         <div class="floating-box"></div>
     </div>
     
+    <div class="particles" id="particles"></div>
+    
+    <div class="skills-ticker">
+        <div class="ticker-content">
+            <span>Java</span><span>Python</span><span>JavaScript</span><span>React</span><span>IT Support</span><span>System Admin</span><span>Network Troubleshooting</span><span>UI/UX Design</span><span>Problem Solving</span><span>Technical Writing</span>
+        </div>
+    </div>
+    
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-palette"></i>
+    </div>
+    
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">Chitranjan</div>
-            <div class="nav-hamburger">
+            <div class="nav-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Hi, I'm <span class="highlight">Chitranjan</span></h1>
-                <h2>IT Support Specialist & Frontend Developer</h2>
+                <h2 id="dynamic-title"></h2>
                 <p>Passionate about technology, problem-solving, and creating beautiful, efficient solutions with modern web technologies</p>
                 <div class="social-links">
                     <a href="https://github.com/chitranjan140" target="_blank" class="social-link">
@@ -66,6 +76,20 @@
                     <a href="https://twitter.com/yourusername" target="_blank" class="social-link">
                         <i class="fab fa-twitter"></i>
                     </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="200">0</span>
+                        <span class="stat-label">Support Tickets</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">% Satisfaction</span>
+                    </div>
                 </div>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary">View Projects</a>
@@ -124,7 +148,6 @@
                         <li>Interactive Design</li>
                         <li>Usability Testing</li>
                     </ul>
-                    <div class="service-price">Starting at $500</div>
                 </div>
                 
                 <div class="service-card">
@@ -139,7 +162,6 @@
                         <li>Performance Optimization</li>
                         <li>SEO Friendly</li>
                     </ul>
-                    <div class="service-price">Starting at $800</div>
                 </div>
                 
                 <div class="service-card">
@@ -154,7 +176,6 @@
                         <li>App Store Guidelines</li>
                         <li>User Flow Optimization</li>
                     </ul>
-                    <div class="service-price">Starting at $1200</div>
                 </div>
             </div>
         </div>
@@ -404,28 +425,28 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>your.email@example.com</p>
+                            <p>kumarchitranjan5737@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
+                            <p>+91 8757673815</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
                         <div>
                             <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/yourprofile</p>
+                            <p>linkedin.com/in/chitranjan-kumar140</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
                         <div>
                             <h4>GitHub</h4>
-                            <p>github.com/yourusername</p>
+                            <p>github.com/chitranjan140</p>
                         </div>
                     </div>
                 </div>
@@ -438,7 +459,6 @@
             </div>
         </div>
     </section>
-    </main>
 
     <footer class="footer">
         <div class="container">
