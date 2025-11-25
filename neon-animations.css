@@ -1,0 +1,191 @@
+/* Neon Card Animations for Service Cards */
+.service-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(100, 255, 218, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: cardFadeIn 0.8s ease-out forwards, cardFloat 4s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(100, 255, 218, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.2s; }
+.service-card:nth-child(2) { animation-delay: 0.4s; }
+.service-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes cardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(0, 191, 255, 0.1) 0%, 
+        rgba(100, 255, 218, 0.05) 25%,
+        rgba(138, 43, 226, 0.08) 50%,
+        rgba(100, 255, 218, 0.05) 75%,
+        rgba(0, 191, 255, 0.1) 100%);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    box-shadow: 
+        0 20px 60px rgba(0, 191, 255, 0.3),
+        0 0 0 1px rgba(100, 255, 218, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(100, 255, 218, 0.6) !important;
+}
+
+/* Project Cards with Neon Effects */
+.project-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(100, 255, 218, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: cardFadeIn 0.8s ease-out forwards, cardFloat 4s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(100, 255, 218, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.4s; }
+.project-card:nth-child(3) { animation-delay: 0.6s; }
+.project-card:nth-child(4) { animation-delay: 0.8s; }
+.project-card:nth-child(5) { animation-delay: 1s; }
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(0, 191, 255, 0.1) 0%, 
+        rgba(100, 255, 218, 0.05) 25%,
+        rgba(138, 43, 226, 0.08) 50%,
+        rgba(100, 255, 218, 0.05) 75%,
+        rgba(0, 191, 255, 0.1) 100%);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    box-shadow: 
+        0 20px 60px rgba(0, 191, 255, 0.3),
+        0 0 0 1px rgba(100, 255, 218, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(100, 255, 218, 0.6) !important;
+}
+
+/* Enhanced Skill Tags with Neon Glow */
+.skill-tag {
+    background: linear-gradient(45deg, rgba(0, 191, 255, 0.2), rgba(100, 255, 218, 0.2)) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(100, 255, 218, 0.3) !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    animation: tagFloat 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.2) !important;
+}
+
+.skill-tag:nth-child(odd) { animation-delay: 0s; }
+.skill-tag:nth-child(even) { animation-delay: 0.5s; }
+
+@keyframes tagFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.skill-tag:hover::before {
+    width: 200px;
+    height: 200px;
+    animation: rippleGlow 0.6s ease-out;
+}
+
+@keyframes rippleGlow {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    background: linear-gradient(45deg, rgba(0, 191, 255, 0.4), rgba(100, 255, 218, 0.4)) !important;
+    box-shadow: 
+        0 8px 25px rgba(100, 255, 218, 0.4),
+        0 0 20px rgba(0, 191, 255, 0.3) !important;
+    border-color: rgba(100, 255, 218, 0.8) !important;
+    animation: tagPulse 0.6s ease-out;
+}
+
+@keyframes tagPulse {
+    0% { box-shadow: 0 4px 15px rgba(0, 191, 255, 0.2); }
+    50% { box-shadow: 0 8px 30px rgba(100, 255, 218, 0.6); }
+    100% { box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4); }
+}

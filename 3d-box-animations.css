@@ -1,0 +1,174 @@
+/* 3D Box Animations */
+.floating-box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(0, 191, 255, 0.1), rgba(100, 255, 218, 0.1));
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    animation: float3D 6s ease-in-out infinite, rotate3D 8s linear infinite;
+    box-shadow: 
+        0 10px 30px rgba(0, 191, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.floating-box:nth-child(1) { 
+    top: 10%; left: 5%; 
+    animation-delay: 0s;
+    transform: rotateX(15deg) rotateY(25deg);
+}
+.floating-box:nth-child(2) { 
+    top: 20%; right: 10%; 
+    animation-delay: -1s;
+    transform: rotateX(-20deg) rotateY(45deg);
+}
+.floating-box:nth-child(3) { 
+    top: 60%; left: 8%; 
+    animation-delay: -2s;
+    transform: rotateX(30deg) rotateY(-15deg);
+}
+.floating-box:nth-child(4) { 
+    top: 80%; right: 15%; 
+    animation-delay: -3s;
+    transform: rotateX(-10deg) rotateY(60deg);
+}
+.floating-box:nth-child(5) { 
+    top: 40%; left: 15%; 
+    animation-delay: -4s;
+    transform: rotateX(45deg) rotateY(-30deg);
+}
+.floating-box:nth-child(6) { 
+    top: 30%; right: 5%; 
+    animation-delay: -5s;
+    transform: rotateX(-25deg) rotateY(20deg);
+}
+.floating-box:nth-child(7) { 
+    top: 70%; left: 20%; 
+    animation-delay: -1.5s;
+    transform: rotateX(20deg) rotateY(-45deg);
+}
+.floating-box:nth-child(8) { 
+    top: 15%; left: 50%; 
+    animation-delay: -2.5s;
+    transform: rotateX(-35deg) rotateY(35deg);
+}
+.floating-box:nth-child(9) { 
+    top: 85%; right: 25%; 
+    animation-delay: -3.5s;
+    transform: rotateX(40deg) rotateY(-20deg);
+}
+.floating-box:nth-child(10) { 
+    top: 50%; right: 30%; 
+    animation-delay: -4.5s;
+    transform: rotateX(-15deg) rotateY(50deg);
+}
+
+@keyframes float3D {
+    0%, 100% { 
+        transform: translateY(0px) translateZ(0px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    }
+    33% { 
+        transform: translateY(-20px) translateZ(15px) rotateX(calc(var(--rx, 0deg) + 15deg)) rotateY(calc(var(--ry, 0deg) + 10deg));
+    }
+    66% { 
+        transform: translateY(-10px) translateZ(-10px) rotateX(calc(var(--rx, 0deg) - 10deg)) rotateY(calc(var(--ry, 0deg) - 15deg));
+    }
+}
+
+@keyframes rotate3D {
+    0% { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotateZ(0deg); }
+    25% { transform: rotateX(calc(var(--rx, 0deg) + 90deg)) rotateY(calc(var(--ry, 0deg) + 45deg)) rotateZ(90deg); }
+    50% { transform: rotateX(calc(var(--rx, 0deg) + 180deg)) rotateY(calc(var(--ry, 0deg) + 90deg)) rotateZ(180deg); }
+    75% { transform: rotateX(calc(var(--rx, 0deg) + 270deg)) rotateY(calc(var(--ry, 0deg) + 135deg)) rotateZ(270deg); }
+    100% { transform: rotateX(calc(var(--rx, 0deg) + 360deg)) rotateY(calc(var(--ry, 0deg) + 180deg)) rotateZ(360deg); }
+}
+
+.floating-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(0, 191, 255, 0.3) 0%,
+        rgba(100, 255, 218, 0.3) 25%,
+        rgba(138, 43, 226, 0.3) 50%,
+        rgba(100, 255, 218, 0.3) 75%,
+        rgba(0, 191, 255, 0.3) 100%);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.floating-box:hover {
+    animation-play-state: paused;
+    transform: scale(1.2) rotateX(45deg) rotateY(45deg) translateZ(20px);
+    box-shadow: 
+        0 20px 50px rgba(0, 191, 255, 0.4),
+        0 0 30px rgba(100, 255, 218, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.floating-box:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced 3D Cards */
+.service-card, .project-card, .cert-card {
+    transform-style: preserve-3d !important;
+    perspective: 1000px;
+}
+
+.service-card:hover, .project-card:hover, .cert-card:hover {
+    transform: translateY(-15px) scale(1.02) rotateX(10deg) rotateY(5deg) translateZ(20px) !important;
+}
+
+.about-stats .stat {
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: statFloat 4s ease-in-out infinite;
+}
+
+.about-stats .stat:nth-child(1) { animation-delay: 0s; }
+.about-stats .stat:nth-child(2) { animation-delay: 0.5s; }
+.about-stats .stat:nth-child(3) { animation-delay: 1s; }
+
+@keyframes statFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-8px) rotateX(5deg); }
+}
+
+.about-stats .stat:hover {
+    transform: translateY(-10px) scale(1.05) rotateX(15deg) rotateY(10deg) translateZ(15px);
+    box-shadow: 0 15px 40px rgba(0, 191, 255, 0.3);
+}
+
+/* 3D Timeline Items */
+.timeline-item {
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: timelineFloat 5s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(odd) { animation-delay: 0s; }
+.timeline-item:nth-child(even) { animation-delay: 1s; }
+
+@keyframes timelineFloat {
+    0%, 100% { transform: translateX(0px) rotateY(0deg); }
+    50% { transform: translateX(5px) rotateY(2deg); }
+}
+
+.timeline-item:hover {
+    transform: translateX(10px) scale(1.02) rotateY(8deg) translateZ(10px);
+    box-shadow: -5px 10px 30px rgba(0, 191, 255, 0.2);
+}
