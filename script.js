@@ -140,13 +140,14 @@ function initMobileMenu() {
     });
 }
 
-// Dynamic Title Animation
+// Ultra Modern Dynamic Title with Multiple Effects
 function initDynamicTitle() {
     const titles = [
-        'IT Support Specialist',
-        'Software Developer',
-        'Problem Solver',
-        'Tech Enthusiast'
+        { text: 'IT Support Specialist', color: '#3b82f6' },
+        { text: 'Software Developer', color: '#10b981' }, 
+        { text: 'Frontend Developer', color: '#f59e0b' },
+        { text: 'Problem Solver', color: '#8b5cf6' },
+        { text: 'Tech Innovator', color: '#ef4444' }
     ];
     
     const titleElement = document.getElementById('dynamic-title');
@@ -154,37 +155,58 @@ function initDynamicTitle() {
     
     let currentIndex = 0;
     
-    function typeTitle() {
-        const currentTitle = titles[currentIndex];
+    function modernTypeTitle() {
+        const current = titles[currentIndex];
         let charIndex = 0;
-        titleElement.textContent = '';
         
-        function typeChar() {
-            if (charIndex < currentTitle.length) {
-                titleElement.textContent += currentTitle.charAt(charIndex);
+        titleElement.innerHTML = '<span class="highlight typing-text"></span>';
+        const spanElement = titleElement.querySelector('.highlight');
+        spanElement.style.color = current.color;
+        spanElement.style.textShadow = `0 0 10px ${current.color}40`;
+        
+        function typeWithEffect() {
+            if (charIndex < current.text.length) {
+                if (Math.random() < 0.1) {
+                    spanElement.style.transform = `translateX(${Math.random() * 2 - 1}px)`;
+                    setTimeout(() => spanElement.style.transform = 'translateX(0)', 50);
+                }
+                
+                spanElement.textContent += current.text.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeChar, 100);
+                
+                const speed = Math.random() * 100 + 50;
+                setTimeout(typeWithEffect, speed);
             } else {
+                spanElement.style.animation = 'pulse 0.5s ease-in-out';
                 setTimeout(() => {
-                    eraseTitle();
-                }, 2000);
+                    spanElement.style.animation = '';
+                    setTimeout(modernEraseTitle, 2500);
+                }, 500);
             }
         }
         
-        function eraseTitle() {
-            if (titleElement.textContent.length > 0) {
-                titleElement.textContent = titleElement.textContent.slice(0, -1);
-                setTimeout(eraseTitle, 50);
+        function modernEraseTitle() {
+            if (spanElement.textContent.length > 0) {
+                if (Math.random() < 0.3) {
+                    const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+                    const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                    spanElement.textContent = spanElement.textContent.slice(0, -1) + randomChar;
+                    setTimeout(() => {
+                        spanElement.textContent = spanElement.textContent.slice(0, -1);
+                    }, 30);
+                }
+                spanElement.textContent = spanElement.textContent.slice(0, -1);
+                setTimeout(modernEraseTitle, 30);
             } else {
                 currentIndex = (currentIndex + 1) % titles.length;
-                setTimeout(typeTitle, 500);
+                setTimeout(modernTypeTitle, 800);
             }
         }
         
-        typeChar();
+        typeWithEffect();
     }
     
-    typeTitle();
+    modernTypeTitle();
 }
 
 // Counter Animation
